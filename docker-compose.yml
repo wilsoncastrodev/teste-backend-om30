@@ -1,0 +1,58 @@
+version: "3.9"
+services:
+  server-app:
+    container_name: "om30-server-app"
+    image: nginx:latest
+    restart: always
+    working_dir: /var/www/app
+    volumes:
+      - ./server-app:/var/www/app
+      - ./server-app/nginx:/etc/nginx/conf.d
+    stdin_open: true
+    tty: true
+    depends_on:
+      - php
+    links:
+      - php
+    ports:
+      - "7000:7000"
+
+  php:
+    container_name: "om30-server-app-php"
+    build: 
+      context: server-app
+      dockerfile: Dockerfile
+    restart: always
+    working_dir: /var/www/app
+    volumes:
+      - ./server-app/:/var/www/app
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: "om30-server-app-postgres"
+    image: postgres:15
+    restart: always
+    volumes:
+        -   ./database-app:/var/lib/postgresql/data
+    environment:
+        POSTGRES_USER: contato@wilsoncastro.dev
+        POSTGRES_PASSWORD: wilsoncastro123
+        POSTGRES_DB: om30
+    ports:
+        -   "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: "om30-server-app-pgadmin4"
+    ports:
+      - "6050:80"
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: contato@wilsoncastro.dev
+      PGADMIN_DEFAULT_PASSWORD: wilsoncastro123
+
+# Comando para entrar no container om30-server-app-php
+# docker exec -it om30-server-app-php bash
+# docker exec -it om30-server-app-php bash ../server-init.sh
