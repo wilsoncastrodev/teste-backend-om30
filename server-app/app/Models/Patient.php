@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Patient extends Model
@@ -26,9 +27,19 @@ class Patient extends Model
         'photo'
     ];
 
+    protected $with = ['address'];
+
+    protected function photo(): Attribute
+    {
+        return Attribute::make(
+            set: fn (UploadedFile $value) => Helper::generateFileName($value),
+        );
+    }
+
     protected function birthDate(): Attribute
     {
         return Attribute::make(
+            get: fn ($value) => Helper::dateFormatDMY($value),
             set: fn ($value) => Helper::dateFormatYMD($value),
         );
     }
