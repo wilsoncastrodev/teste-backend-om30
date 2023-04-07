@@ -21,7 +21,7 @@ interface PatientServiceInterface
     /**
      * Serviço para consultar todos os Pacientes com Paginação
      *
-     * @param null Não há parâmetros
+     * @param int $lenght Quantidade de Paciente por Página
      *
      * @return LengthAwarePaginator Pacientes que foram encontrados.
      */
