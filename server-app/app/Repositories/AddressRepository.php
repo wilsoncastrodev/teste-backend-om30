@@ -10,7 +10,9 @@ class AddressRepository implements AddressRepositoryInterface
 {
     public function searchAddressByZipcode(string $zipcode): array
     {
-        $response = Http::get("https://viacep.com.br/ws/$zipcode/json/");
-        return $response->json();
+        return Cache::rememberForever('patients' . $zipcode, function() use ($zipcode) {
+            $response = Http::get("https://viacep.com.br/ws/$zipcode/json/");
+            return $response->json();
+        });
     }
 }

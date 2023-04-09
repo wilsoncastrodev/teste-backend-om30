@@ -28,23 +28,25 @@ services:
       - ./server-app/:/var/www/app
     depends_on:
       - postgres
+      - redis
 
   postgres:
     container_name: "om30-server-app-postgres"
     image: postgres:15
     restart: always
     volumes:
-        -   ./database-app:/var/lib/postgresql/data
+        - ./database-app:/var/lib/postgresql/data
     environment:
         POSTGRES_USER: contato@wilsoncastro.dev
         POSTGRES_PASSWORD: wilsoncastro123
         POSTGRES_DB: om30
     ports:
-        -   "5432:5432"
+        - "5432:5432"
 
   pgadmin:
-    image: dpage/pgadmin4
     container_name: "om30-server-app-pgadmin4"
+    image: dpage/pgadmin4
+    restart: always
     ports:
       - "6050:80"
     depends_on:
@@ -52,6 +54,15 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: contato@wilsoncastro.dev
       PGADMIN_DEFAULT_PASSWORD: wilsoncastro123
+
+  redis:
+    container_name: "om30-server-app-redis"
+    image: "redis:7.0.5"
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+        - ./redis-app:/data
 
 # Comando para entrar no container om30-server-app-php
 # docker exec -it om30-server-app-php bash
