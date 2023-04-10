@@ -46,4 +46,14 @@ class Helper
     {
         return Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
     }
+
+    public static function removeAccentsSpecialCharacters(string $string): string
+    {
+        $string = strtr(
+            utf8_decode($string), 
+            utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 
+            'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY'
+        );
+        return preg_replace('/[^A-z0-9 ]/', '', $string);
+    }
 }

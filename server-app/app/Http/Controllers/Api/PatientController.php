@@ -38,6 +38,26 @@ class PatientController extends BaseController
         }
     }
 
+    public function searchPatient(mixed $query): Response
+    {
+        try {
+            $patients = $this->patientService->searchPatient($query);
+            return $this->sendResponse($patients);
+        } catch (Exception $e) {
+            return $this->sendErrorException($e);
+        }
+    }
+
+    public function searchPatientPaginate(mixed $query, int $lenght): Response
+    {
+        try {
+            $patients = $this->patientService->searchPatientPaginate($query, $lenght);
+            return $this->sendResponse($patients);
+        } catch (Exception $e) {
+            return $this->sendErrorException($e);
+        }
+    }
+
     public function store(StorePatientRequest $request): Response
     {
         try {

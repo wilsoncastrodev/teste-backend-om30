@@ -29,6 +29,7 @@ services:
     depends_on:
       - postgres
       - redis
+      - elasticsearch
 
   postgres:
     container_name: "om30-server-app-postgres"
@@ -63,6 +64,19 @@ services:
       - "6379:6379"
     volumes:
         - ./redis-app:/data
+
+  elasticsearch:
+    container_name: "om30-server-app-elasticsearch"
+    image: elasticsearch:8.7.0
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms256m -Xmx256m
+      - MAX_LOCAL_STORAGE_NODES=1
+    volumes:
+      - ./elasticsearch-app:/usr/share/elasticsearch/data
 
 # Comando para entrar no container om30-server-app-php
 # docker exec -it om30-server-app-php bash

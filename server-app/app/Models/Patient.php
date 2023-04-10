@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Laravel\Scout\Searchable;
 
 class Patient extends Model
 {
-    use HasFactory;
+    use Searchable, HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -42,6 +43,14 @@ class Patient extends Model
             get: fn ($value) => Helper::dateFormatDMY($value),
             set: fn ($value) => Helper::dateFormatYMD($value),
         );
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => Helper::removeAccentsSpecialCharacters($this->name),
+            'cpf' => Helper::removeAccentsSpecialCharacters($this->cpf),
+        ];
     }
 
     public function address(): HasOne

@@ -70,6 +70,74 @@ class PatientServiceTest extends TestCase
         );
     }
 
+    public function testSearchPatientByNameService()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $foundPatient = $this->patientService->searchPatient($storedPatientRequest->name);
+
+        $this->assertNotEmpty($foundPatient, 'A lista de pacientes retornada deve ser diferente de vazio');
+        $this->assertInstanceOf(
+            ResourceCollection::class, 
+            $foundPatient, 
+            'A lista de objetos de Paciente retornada deve ser uma instância da classe ResourceCollection'
+        );
+    }
+
+    public function testSearchPatientByCpfService()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $foundPatient = $this->patientService->searchPatient($storedPatientRequest->cpf);
+
+        $this->assertNotEmpty($foundPatient, 'A lista de pacientes retornada deve ser diferente de vazio');
+        $this->assertInstanceOf(
+            ResourceCollection::class, 
+            $foundPatient, 
+            'A lista de objetos de Paciente retornada deve ser uma instância da classe ResourceCollection'
+        );
+    }
+
+    public function testSearchPatientByNamePaginateService()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $foundPatient = $this->patientService->searchPatientPaginate($storedPatientRequest->name, 5);
+
+        $this->assertNotEmpty($foundPatient, 'A lista de pacientes retornada deve ser diferente de vazio');
+        $this->assertInstanceOf(
+            ResourceCollection::class, 
+            $foundPatient, 
+            'A lista de objetos de Paciente retornada deve ser uma instância da classe ResourceCollection'
+        );
+    }
+
+    public function testSearchPatientByCpfPaginateService()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $foundPatient = $this->patientService->searchPatientPaginate($storedPatientRequest->cpf, 5);
+
+        $this->assertNotEmpty($foundPatient, 'A lista de pacientes retornada deve ser diferente de vazio');
+        $this->assertInstanceOf(
+            ResourceCollection::class, 
+            $foundPatient, 
+            'A lista de objetos de Paciente retornada deve ser uma instância da classe ResourceCollection'
+        );
+    }
+
     public function testCreateAPatientService()
     {
         Storage::fake('public');

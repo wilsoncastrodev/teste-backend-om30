@@ -37,6 +37,25 @@ interface PatientRepositoryInterface
     public function getPatientById(Patient $patient): Patient;
 
     /**
+     * Busca Pacientes por meio do Nome ou CPF
+     *
+     * @param mixed $query Informação para Consulta
+     *
+     * @return Collection Os pacientes que foram encontrados.
+     */
+    public function searchPatient(mixed $query): Collection;
+
+    /**
+     * Busca Pacientes por meio do Nome ou CPF com Paginação
+     *
+     * @param mixed $query Informação para Consulta
+     * @param int $lenght Quantidade de Paciente por Página
+     *
+     * @return LengthAwarePaginator Os pacientes que foram encontrados.
+     */
+    public function searchPatientPaginate(mixed $query, int $lenght): LengthAwarePaginator;
+
+    /**
      * Cria um novo Paciente
      *
      * @param Request Objeto Paciente da Requisição

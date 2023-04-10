@@ -2,3 +2,5 @@
 database-app/
 
 redis-app/
+
+elasticsearch-app/

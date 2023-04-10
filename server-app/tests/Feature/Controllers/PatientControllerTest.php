@@ -20,7 +20,7 @@ class PatientControllerTest extends TestCase
     public function setUp() : void
     {
         parent::setUp();
-        //$this->markTestSkipped('Teste desativado.');
+        // $this->markTestSkipped('Teste desativado.');
     }
 
     public function testGetAllPatientApi()
@@ -50,6 +50,58 @@ class PatientControllerTest extends TestCase
 
         $response = $this->get("api/v1/patients/$storedPatientRequest->id");
         
+        $response->assertStatus(200);
+        $response->assertOk();
+    }
+
+    public function testSearchPatientByNameService()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $response = $this->get("api/v1/patients/search/$storedPatientRequest->name");
+
+        $response->assertStatus(200);
+        $response->assertOk();
+    }
+
+    public function testSearchPatientByCpfService()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $response = $this->get("api/v1/patients/search/$storedPatientRequest->cpf");
+
+        $response->assertStatus(200);
+        $response->assertOk();
+    }
+
+    public function testSearchPatientByNamePaginateService()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $response = $this->get("api/v1/patients/search/$storedPatientRequest->name/paginate/6");
+
+        $response->assertStatus(200);
+        $response->assertOk();
+    }
+
+    public function testSearchPatientByCpfPaginateService()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $response = $this->get("api/v1/patients/search/$storedPatientRequest->cpf/paginate/6");
+
         $response->assertStatus(200);
         $response->assertOk();
     }

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Helpers\Helper;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Resources\PatientCollection;
 use App\Http\Resources\PatientPaginateCollection;
@@ -40,6 +41,20 @@ class PatientService implements PatientServiceInterface
     {
         $patient = $this->patientRepository->getPatientById($patient);
         return new PatientResource($patient);
+    }
+
+    public function searchPatient(mixed $query): ResourceCollection
+    {
+        $query = Helper::removeAccentsSpecialCharacters($query);
+        $patients = $this->patientRepository->searchPatient($query);
+        return new PatientCollection($patients);
+    }
+
+    public function searchPatientPaginate(mixed $query, int $lenght): ResourceCollection
+    {
+        $query = Helper::removeAccentsSpecialCharacters($query);
+        $patients = $this->patientRepository->searchPatientPaginate($query, $lenght);
+        return new PatientPaginateCollection($patients);
     }
     
     public function createPatient(Request $request): JsonResource

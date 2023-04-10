@@ -37,6 +37,25 @@ interface PatientServiceInterface
     public function getPatientById(Patient $patient): JsonResource;
 
     /**
+     * Serviço para buscar Pacientes por meio do Nome ou CPF
+     *
+     * @param mixed $query Informação para Consulta
+     *
+     * @return ResourceCollection Os pacientes que foram encontrados.
+     */
+    public function searchPatient(mixed $query): ResourceCollection;
+
+    /**
+     * Serviço para buscar Pacientes por meio do Nome ou CPF com Paginação
+     *
+     * @param mixed $query Informação para Consulta
+     * @param int $lenght Quantidade de Paciente por Página
+     *
+     * @return ResourceCollection Os pacientes que foram encontrados.
+     */
+    public function searchPatientPaginate(mixed $query, int $lenght): ResourceCollection;
+
+    /**
      * Serviço para criar um novo Paciente
      *
      * @param Request Objeto Paciente da Requisição

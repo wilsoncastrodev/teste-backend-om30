@@ -26,6 +26,16 @@ class PatientRepository implements PatientRepositoryInterface
         return $patient;
     }
     
+    public function searchPatient(mixed $query): Collection
+    {
+        return Patient::search($query)->get();
+    }
+    
+    public function searchPatientPaginate(mixed $query, int $lenght): LengthAwarePaginator
+    {
+        return Patient::search($query)->paginate($lenght);
+    }
+    
     public function createPatient(Request $request): Patient
     {
         $patient = Patient::create($request->all());

@@ -78,6 +78,90 @@ class PatientRepositoryTest extends TestCase
         );
     }
 
+    public function testSearchPatientByNameRepository()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+        $patientNameRequest = Helper::removeAccentsSpecialCharacters($storedPatients->first()->name);
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $foundPatient = $this->patientRepository->searchPatient($patientNameRequest);
+
+        $this->assertEquals(
+            $storedPatientRequest->name, 
+            $foundPatient->first()->name, 
+            'O Nome do Paciente da requisição deve ser o mesmo Nome do Paciente recuperado do Banco de Dados'
+        );
+        $this->assertInstanceOf(
+            Collection::class, $foundPatient,
+            'O Paciente encontrado deve ser uma instância da classe Collection'
+        );
+    }
+
+    public function testSearchPatientByCpfRepository()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+        $patientCPFRequest = Helper::removeAccentsSpecialCharacters($storedPatients->first()->cpf);
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $foundPatient = $this->patientRepository->searchPatient($patientCPFRequest);
+
+        $this->assertEquals(
+            $storedPatientRequest->cpf, 
+            $foundPatient->first()->cpf, 
+            'O CPF do Paciente da requisição deve ser o mesmo CPF do Paciente recuperado do Banco de Dados'
+        );
+        $this->assertInstanceOf(
+            Collection::class, $foundPatient,
+            'O Paciente encontrado deve ser uma instância da classe Collection'
+        );
+    }
+
+    public function testSearchPatientByNamePaginateRepository()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+        $patientNameRequest = Helper::removeAccentsSpecialCharacters($storedPatients->first()->name);
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $foundPatient = $this->patientRepository->searchPatientPaginate($patientNameRequest, 5);
+
+        $this->assertEquals(
+            $storedPatientRequest->name, 
+            $foundPatient->first()->name, 
+            'O Nome do Paciente da requisição deve ser o mesmo Nome do Paciente recuperado do Banco de Dados'
+        );
+        $this->assertInstanceOf(
+            LengthAwarePaginator::class, $foundPatient,
+            'O Paciente encontrado deve ser uma instância da classe LengthAwarePaginator'
+        );
+    }
+
+    public function testSearchPatientByCpfPaginateRepository()
+    {
+        $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
+        $storedPatientRequest = $storedPatients->first();
+        $patientCPFRequest = Helper::removeAccentsSpecialCharacters($storedPatients->first()->cpf);
+
+        sleep(2); // tempo necessário para indexação dos pacientes pelo ElasticSearch
+
+        $foundPatient = $this->patientRepository->searchPatientPaginate($patientCPFRequest, 5);
+
+        $this->assertEquals(
+            $storedPatientRequest->cpf, 
+            $foundPatient->first()->cpf, 
+            'O CPF do Paciente da requisição deve ser o mesmo CPF do Paciente recuperado do Banco de Dados'
+        );
+        $this->assertInstanceOf(
+            LengthAwarePaginator::class, $foundPatient,
+            'O Paciente encontrado deve ser uma instância da classe LengthAwarePaginator'
+        );
+    }
+
     public function testCreateAPatientRepository()
     {
         $patient = Patient::factory()->make()->toArray();
