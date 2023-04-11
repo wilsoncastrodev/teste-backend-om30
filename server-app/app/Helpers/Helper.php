@@ -11,7 +11,7 @@ class Helper
 {
     public static function generateFileName($file): string
     {
-        $name = request()->name ?? 'imagem';
+        $name = request()->name ?? 'paciente';
 
         if($file) {
             return Str::slug($name) . '-' . time() . "." . $file->getClientOriginalExtension();

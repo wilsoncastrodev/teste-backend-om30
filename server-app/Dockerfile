@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     libzip-dev \
-    libpq-dev
+    libpq-dev \
+    libxml2-dev
 
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug \
@@ -32,6 +33,18 @@ RUN docker-php-ext-enable pdo_pgsql
 
 RUN docker-php-ext-install gd
 RUN docker-php-ext-enable gd
+
+RUN docker-php-ext-install zip
+RUN docker-php-ext-enable zip
+
+RUN docker-php-ext-install iconv
+RUN docker-php-ext-enable iconv
+
+RUN docker-php-ext-install simplexml
+RUN docker-php-ext-enable simplexml
+
+RUN docker-php-ext-install xml
+RUN docker-php-ext-enable xml
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 

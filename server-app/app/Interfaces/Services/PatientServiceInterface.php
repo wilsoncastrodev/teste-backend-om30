@@ -82,4 +82,13 @@ interface PatientServiceInterface
      * @return void Não há retorno.
      */
     public function deletePatient(Patient $patient): bool;
+
+    /**
+     * Serviço para importar pacientes de um arquivo CSV
+     *
+     * @param Request $request Requisão com arquivo CSV
+     *
+     * @return void Não há retorno.
+     */
+    public function importPatient(Request $request): void;
 }

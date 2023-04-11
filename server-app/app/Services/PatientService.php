@@ -8,6 +8,7 @@ use App\Http\Resources\PatientCollection;
 use App\Http\Resources\PatientPaginateCollection;
 use App\Http\Resources\PatientResource;
 use App\Interfaces\Services\PatientServiceInterface;
+use App\Jobs\ImportPatients;
 use App\Models\Patient;
 use App\Repositories\PatientRepository;
 use Illuminate\Http\Request;
@@ -86,5 +87,11 @@ class PatientService implements PatientServiceInterface
         Storage::delete('patients/photos/' . $patient->photo);
 
         return $this->patientRepository->deletePatient($patient);
+    }
+
+    public function importPatient(Request $request): void
+    {
+        $filepath = $request->file('file')->storeAs('patients/files', Helper::generateFileName($request->file('file')));
+        ImportPatients::dispatch($filepath);
     }
 }

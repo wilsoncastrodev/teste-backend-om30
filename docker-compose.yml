@@ -68,6 +68,7 @@ services:
   elasticsearch:
     container_name: "om30-server-app-elasticsearch"
     image: elasticsearch:8.7.0
+    restart: always
     ports:
       - "9200:9200"
     environment:

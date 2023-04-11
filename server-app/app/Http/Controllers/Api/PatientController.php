@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use \Exception;
+use App\Http\Requests\ImportPatientRequest;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 use App\Models\Patient;
 use App\Services\PatientService;
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 class PatientController extends BaseController
 {
@@ -92,6 +94,16 @@ class PatientController extends BaseController
     {
         try {
             $this->patientService->deletePatient($patient);
+            return $this->sendResponse([]);
+        } catch (Exception $e) {
+            return $this->sendErrorException($e);
+        }
+    }
+
+    public function import(ImportPatientRequest $request): Response
+    {
+        try {
+            $this->patientService->importPatient($request);
             return $this->sendResponse([]);
         } catch (Exception $e) {
             return $this->sendErrorException($e);
