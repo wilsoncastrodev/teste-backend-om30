@@ -16,11 +16,22 @@ RUN apt-get update && apt-get install -y \
     curl \
     libzip-dev \
     libpq-dev \
-    libxml2-dev
+    libxml2-dev \
+    supervisor 
 
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+RUN echo '[program:horizon] \n\
+process_name=%(program_name)s \n\
+command=php /var/www/app/artisan horizon \n\
+autostart=true \n\
+autorestart=true \n\
+user=root \n\
+redirect_stderr=true \n\
+stdout_logfile=/var/www/app/storage/logs/worker.log \n\
+stopwaitsecs=3600' >> /etc/supervisor/conf.d/horizon.conf
 
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-enable pdo
@@ -45,6 +56,9 @@ RUN docker-php-ext-enable simplexml
 
 RUN docker-php-ext-install xml
 RUN docker-php-ext-enable xml
+
+RUN docker-php-ext-install pcntl
+RUN docker-php-ext-enable pcntl
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 

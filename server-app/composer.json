@@ -15,11 +15,11 @@
         "babenkoivan/elastic-scout-driver": "^3.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
+        "laravel/horizon": "v5.15.0",
         "laravel/sanctum": "^3.2",
         "laravel/scout": "^10.0",
         "laravel/tinker": "^2.8",
         "maatwebsite/excel": "3.1.48",
-        "matchish/laravel-scout-elasticsearch": "7.2.1",
         "predis/predis": "^2.1",
         "robersonfaria/validation": "dev-fix as 1.0"
     },
