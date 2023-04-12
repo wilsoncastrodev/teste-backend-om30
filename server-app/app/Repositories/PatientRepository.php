@@ -16,9 +16,9 @@ class PatientRepository implements PatientRepositoryInterface
         return Patient::all()->sortByDesc("created_at");
     }
 
-    public function getAllPatientPaginate(int $lenght): LengthAwarePaginator
+    public function getAllPatientPaginate(int $length): LengthAwarePaginator
     {
-        return Patient::orderByDesc('created_at')->paginate($lenght);
+        return Patient::orderByDesc('created_at')->paginate($length);
     }
 
     public function getPatientById(Patient $patient): Patient
@@ -31,9 +31,9 @@ class PatientRepository implements PatientRepositoryInterface
         return Patient::search($query)->get();
     }
     
-    public function searchPatientPaginate(mixed $query, int $lenght): LengthAwarePaginator
+    public function searchPatientPaginate(mixed $query, int $length): LengthAwarePaginator
     {
-        return Patient::search($query)->paginate($lenght);
+        return Patient::search($query)->paginate($length);
     }
     
     public function createPatient(Request $request): Patient

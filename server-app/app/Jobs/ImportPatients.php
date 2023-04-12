@@ -10,6 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ImportPatients implements ShouldQueue
@@ -33,6 +34,18 @@ class ImportPatients implements ShouldQueue
     {
         Log::info('Iniciado importação de Pacientes. Job: ' . $this->job->getJobId());
         Excel::import(new PatientsImport, $this->filepath);
+        Storage::delete('patients/files/' . $this->filepath);
         Log::info('Finalizado a importação de Pacientes. Job: ' . $this->job->getJobId());
+    }
+
+    /**
+     * Handle a job failure.
+     *
+     * @param  \Throwable  $exception
+     * @return void
+     */
+    public function failed(Throwable $exception)
+    {
+        Log::error($exception);
     }
 }

@@ -21,11 +21,11 @@ interface PatientRepositoryInterface
     /**
      * Consulta todos os Pacientes com Paginação
      *
-     * @param int $lenght Quantidade de Paciente por Página
+     * @param int $length Quantidade de Paciente por Página
      *
      * @return LengthAwarePaginator Pacientes que foram encontrados.
      */
-    public function getAllPatientPaginate(int $lenght): LengthAwarePaginator;
+    public function getAllPatientPaginate(int $length): LengthAwarePaginator;
 
     /**
      * Consulta um Paciente por meio do ID
@@ -39,7 +39,7 @@ interface PatientRepositoryInterface
     /**
      * Busca Pacientes por meio do Nome ou CPF
      *
-     * @param mixed $query Informação para Consulta
+     * @param mixed $query Nome ou CPF do paciente
      *
      * @return Collection Os pacientes que foram encontrados.
      */
@@ -48,12 +48,12 @@ interface PatientRepositoryInterface
     /**
      * Busca Pacientes por meio do Nome ou CPF com Paginação
      *
-     * @param mixed $query Informação para Consulta
-     * @param int $lenght Quantidade de Paciente por Página
+     * @param mixed $query Nome ou CPF do paciente
+     * @param int $length Quantidade de Paciente por Página
      *
      * @return LengthAwarePaginator Os pacientes que foram encontrados.
      */
-    public function searchPatientPaginate(mixed $query, int $lenght): LengthAwarePaginator;
+    public function searchPatientPaginate(mixed $query, int $length): LengthAwarePaginator;
 
     /**
      * Cria um novo Paciente

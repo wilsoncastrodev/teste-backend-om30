@@ -21,11 +21,11 @@ interface PatientServiceInterface
     /**
      * Serviço para consultar todos os Pacientes com Paginação
      *
-     * @param int $lenght Quantidade de Paciente por Página
+     * @param int $length Quantidade de Paciente por Página
      *
      * @return LengthAwarePaginator Pacientes que foram encontrados.
      */
-    public function getAllPatientPaginate(int $lenght): ResourceCollection;
+    public function getAllPatientPaginate(int $length): ResourceCollection;
 
     /**
      * Serviço para consultar um Paciente por meio do ID
@@ -39,7 +39,7 @@ interface PatientServiceInterface
     /**
      * Serviço para buscar Pacientes por meio do Nome ou CPF
      *
-     * @param mixed $query Informação para Consulta
+     * @param mixed $query Nome ou CPF do paciente
      *
      * @return ResourceCollection Os pacientes que foram encontrados.
      */
@@ -48,12 +48,12 @@ interface PatientServiceInterface
     /**
      * Serviço para buscar Pacientes por meio do Nome ou CPF com Paginação
      *
-     * @param mixed $query Informação para Consulta
-     * @param int $lenght Quantidade de Paciente por Página
+     * @param mixed $query Nome ou CPF do paciente
+     * @param int $length Quantidade de Paciente por Página
      *
      * @return ResourceCollection Os pacientes que foram encontrados.
      */
-    public function searchPatientPaginate(mixed $query, int $lenght): ResourceCollection;
+    public function searchPatientPaginate(mixed $query, int $length): ResourceCollection;
 
     /**
      * Serviço para criar um novo Paciente
@@ -90,5 +90,5 @@ interface PatientServiceInterface
      *
      * @return void Não há retorno.
      */
-    public function importPatient(Request $request): void;
+    public function importPatients(Request $request): void;
 }

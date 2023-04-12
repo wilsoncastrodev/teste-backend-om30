@@ -30,10 +30,10 @@ class PatientController extends BaseController
         }
     }
 
-    public function paginate(int $lenght): Response
+    public function paginate(int $length): Response
     {
         try {
-            $patients = $this->patientService->getAllPatientPaginate($lenght);
+            $patients = $this->patientService->getAllPatientPaginate($length);
             return $this->sendResponse($patients);
         } catch (Exception $e) {
             return $this->sendErrorException($e);
@@ -50,10 +50,10 @@ class PatientController extends BaseController
         }
     }
 
-    public function searchPatientPaginate(mixed $query, int $lenght): Response
+    public function searchPatientPaginate(mixed $query, int $length): Response
     {
         try {
-            $patients = $this->patientService->searchPatientPaginate($query, $lenght);
+            $patients = $this->patientService->searchPatientPaginate($query, $length);
             return $this->sendResponse($patients);
         } catch (Exception $e) {
             return $this->sendErrorException($e);
@@ -103,7 +103,7 @@ class PatientController extends BaseController
     public function import(ImportPatientRequest $request): Response
     {
         try {
-            $this->patientService->importPatient($request);
+            $this->patientService->importPatients($request);
             return $this->sendResponse([]);
         } catch (Exception $e) {
             return $this->sendErrorException($e);

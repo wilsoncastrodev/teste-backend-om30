@@ -32,9 +32,9 @@ class PatientService implements PatientServiceInterface
         return new PatientCollection($patients);
     }
 
-    public function getAllPatientPaginate(int $lenght): ResourceCollection
+    public function getAllPatientPaginate(int $length): ResourceCollection
     {
-        $patients = $this->patientRepository->getAllPatientPaginate($lenght);
+        $patients = $this->patientRepository->getAllPatientPaginate($length);
         return new PatientPaginateCollection($patients);
     }
 
@@ -51,10 +51,10 @@ class PatientService implements PatientServiceInterface
         return new PatientCollection($patients);
     }
 
-    public function searchPatientPaginate(mixed $query, int $lenght): ResourceCollection
+    public function searchPatientPaginate(mixed $query, int $length): ResourceCollection
     {
         $query = Helper::removeAccentsSpecialCharacters($query);
-        $patients = $this->patientRepository->searchPatientPaginate($query, $lenght);
+        $patients = $this->patientRepository->searchPatientPaginate($query, $length);
         return new PatientPaginateCollection($patients);
     }
     
@@ -89,7 +89,7 @@ class PatientService implements PatientServiceInterface
         return $this->patientRepository->deletePatient($patient);
     }
 
-    public function importPatient(Request $request): void
+    public function importPatients(Request $request): void
     {
         $filepath = $request->file('file')->storeAs('patients/files', Helper::generateFileName($request->file('file')));
         ImportPatients::dispatch($filepath);

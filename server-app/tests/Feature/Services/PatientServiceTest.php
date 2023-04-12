@@ -207,7 +207,7 @@ class PatientServiceTest extends TestCase
         $request = new Request();
 		$request->files->set('file', $file);
 
-        $importPatients = $this->patientService->importPatient($request);
+        $importPatients = $this->patientService->importPatients($request);
 
         $this->assertNull($importPatients);
     }

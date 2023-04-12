@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Patient::factory(2)->has(Address::factory(), 'address')->create();
+        Patient::factory(3)->has(Address::factory(), 'address')->create();
     }
 }

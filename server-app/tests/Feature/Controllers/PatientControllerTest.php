@@ -43,7 +43,7 @@ class PatientControllerTest extends TestCase
         $response->assertOk();
     }
 
-    public function testGetPatientById()
+    public function testGetPatientByIdApi()
     {
         $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create(); 
         $storedPatientRequest = $storedPatients->first();
@@ -54,7 +54,7 @@ class PatientControllerTest extends TestCase
         $response->assertOk();
     }
 
-    public function testSearchPatientByNameService()
+    public function testSearchPatientByNameApi()
     {
         $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
         $storedPatientRequest = $storedPatients->first();
@@ -67,7 +67,7 @@ class PatientControllerTest extends TestCase
         $response->assertOk();
     }
 
-    public function testSearchPatientByCpfService()
+    public function testSearchPatientByCpfApi()
     {
         $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
         $storedPatientRequest = $storedPatients->first();
@@ -80,7 +80,7 @@ class PatientControllerTest extends TestCase
         $response->assertOk();
     }
 
-    public function testSearchPatientByNamePaginateService()
+    public function testSearchPatientByNamePaginateApi()
     {
         $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
         $storedPatientRequest = $storedPatients->first();
@@ -93,7 +93,7 @@ class PatientControllerTest extends TestCase
         $response->assertOk();
     }
 
-    public function testSearchPatientByCpfPaginateService()
+    public function testSearchPatientByCpfPaginateApi()
     {
         $storedPatients = Patient::factory()->count(5)->has(Address::factory())->create();
         $storedPatientRequest = $storedPatients->first();

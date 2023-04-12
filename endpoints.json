@@ -1,0 +1,800 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2023-04-12T16:25:38.757Z",
+    "__export_source": "insomnia.desktop.app:v2023.1.0",
+    "resources": [
+        {
+            "_id": "req_f352f5a83cb846849a88f5b1cec21caf",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1680802330555,
+            "created": 1679598251460,
+            "url": "http://localhost:7000/api/v1/patients",
+            "name": "Consultar Lista de Paciente",
+            "description": "",
+            "method": "GET",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086390007.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "parentId": null,
+            "modified": 1674086390004,
+            "created": 1674086390004,
+            "name": "New Document",
+            "description": "",
+            "scope": "design",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_a29bfa20522648a6870ca26e1ba3ffe0",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1680901259094,
+            "created": 1680802316138,
+            "url": "http://localhost:7000/api/v1/patients/paginate/5?page=1",
+            "name": "Consultar Lista de Paciente com Paginação",
+            "description": "",
+            "method": "GET",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_538f88e96e814a4999912861743e08a7"
+                },
+                {
+                    "id": "pair_4e582a67f0c845b1892ae6292b52a380",
+                    "name": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086390005.9375,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_4f8a5e37f1624a059274b91de2e0d822",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681312333902,
+            "created": 1680214628050,
+            "url": "http://localhost:7000/api/v1/patients/1",
+            "name": "Consultar Paciente",
+            "description": "",
+            "method": "GET",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086390004.375,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_1e4c0cba79ec48fa80603743a309e8f1",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681312306848,
+            "created": 1681141233028,
+            "url": "http://localhost:7000/api/v1/patients/search/Carlos",
+            "name": "Buscar Paciente por Nome",
+            "description": "",
+            "method": "GET",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086390002.0312,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_ce68397a2f6a4ae992e500fd7c9b9ffa",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681303234628,
+            "created": 1681138052926,
+            "url": "http://localhost:7000/api/v1/patients/search/341.918.688-61",
+            "name": "Buscar Paciente por CPF",
+            "description": "",
+            "method": "GET",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086390001.6406,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_beeec5f018ef49c28fcc3e4168073a92",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681312349653,
+            "created": 1681141978144,
+            "url": "http://localhost:7000/api/v1/patients/search/Melissa/paginate/5?page=1",
+            "name": "Buscar Paciente por Nome com Paginação",
+            "description": "",
+            "method": "GET",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086390001.543,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_13e072228faf45448dd33cf1573cd35f",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681312351247,
+            "created": 1681141987982,
+            "url": "http://localhost:7000/api/v1/patients/search/341.918.688-61/paginate/5?page=1",
+            "name": "Buscar Paciente por CPF com Paginação",
+            "description": "",
+            "method": "GET",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086390001.4453,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_28b5a2d031a24e208da4d66f636b95ee",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681312707847,
+            "created": 1680898786993,
+            "url": "http://localhost:7000/api/v1/address/search",
+            "name": "Buscar Endereço por CEP",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_c9a8276ba8b04c99a58fa7ae5b60fea9",
+                        "name": "zipcode",
+                        "value": "30514-150",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_8fa7825a244c49d48858b78debd6ff40"
+                },
+                {
+                    "id": "pair_6ba598a6ed254cada71d9ca9d8635449",
+                    "name": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                },
+                {
+                    "id": "pair_d49f380b290e460594521bc6d352b70d",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086390001.3477,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_95e6c400e27b41a2947fd495d8effa47",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681316705636,
+            "created": 1674086390020,
+            "url": "http://localhost:7000/api/v1/patients",
+            "name": "Criar Paciente",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_e57f7bebd8d84d6caac669b803e14389",
+                        "name": "photo",
+                        "value": "",
+                        "description": "",
+                        "type": "file",
+                        "fileName": "C:\\Users\\wcast\\OneDrive\\Documentos\\perfil-logo-om30.png",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_9c1bb08707f943888a687ef93e499a9e",
+                        "name": "name",
+                        "value": "Breno Ávila Lozano",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_ff8c80ff12fd445da7821efe06cf4ea8",
+                        "name": "mother_name",
+                        "value": "Analu Medina Garcia",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_8b43af3373f044bba91d582020a8575e",
+                        "name": "birth_date",
+                        "value": "25/10/1990",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_e95207b95106441c80da42019f4d18e4",
+                        "name": "cpf",
+                        "value": "784.378.067-04",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_c078a240bf674bc9ba4768a465d220a8",
+                        "name": "cns",
+                        "value": "943602152860018",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_672767d207e14c7cb19eb7ab116080ea",
+                        "name": "zipcode",
+                        "value": "05581-001",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_d94c8b35b1174ce0a35a0491da211002",
+                        "name": "address",
+                        "value": "Avenida Corifeu de Azevedo Marques",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_f711452ecd864bd784fbc2a507fc5d25",
+                        "name": "number",
+                        "value": "45",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_37f6e969b43d43178d63aaa8bfa4f1a8",
+                        "name": "complement",
+                        "value": "Casa 2",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_4888e4e81f7a49e886aa888d630ac646",
+                        "name": "neighborhood",
+                        "value": "Butantã",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_414d48719d3b41369adaf562d84eae20",
+                        "name": "city",
+                        "value": "São Paulo",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_f1d767983e3a46ab9078e8fbc4b3a96a",
+                        "name": "state",
+                        "value": "SP",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_d42463f48e754d07891a5be04df14367",
+                    "disabled": false
+                },
+                {
+                    "id": "pair_9c35934272a14b40a8fac9d5d7b0ec86",
+                    "name": "Accept",
+                    "value": "application/json",
+                    "description": "",
+                    "disabled": false
+                },
+                {
+                    "id": "pair_36b211bf68114c2ebf7d1e9c7e989f7f",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_4aa96b3b69804cc686bc3a37178866b6",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_3992f3ed76e84144bcd22b4c8de4c181",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_b46fbe35fdb646a58cdc33d88bd61c81",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_0dc52fa4b44649ec83869559b2d03055",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086390001.25,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_41d4cf5ff4a5401ba87e1b34f6b3e934",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681316713374,
+            "created": 1679949887865,
+            "url": "http://localhost:7000/api/v1/patients/1",
+            "name": "Atualizar Paciente",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_e57f7bebd8d84d6caac669b803e14389",
+                        "name": "photo",
+                        "value": "",
+                        "description": "",
+                        "type": "file",
+                        "fileName": "C:\\Users\\wcast\\OneDrive\\Documentos\\perfil-logo-om30.png",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_9c1bb08707f943888a687ef93e499a9e",
+                        "name": "name",
+                        "value": "Laís Uchoa Urias",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_ff8c80ff12fd445da7821efe06cf4ea8",
+                        "name": "mother_name",
+                        "value": "Maria Delvalle Lourenço",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_8b43af3373f044bba91d582020a8575e",
+                        "name": "birth_date",
+                        "value": "11/10/1981",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_e95207b95106441c80da42019f4d18e4",
+                        "name": "cpf",
+                        "value": "333.691.948-72",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_c078a240bf674bc9ba4768a465d220a8",
+                        "name": "cns",
+                        "value": "157556991340001",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_672767d207e14c7cb19eb7ab116080ea",
+                        "name": "zipcode",
+                        "value": "30514-150",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_d94c8b35b1174ce0a35a0491da211002",
+                        "name": "address",
+                        "value": "Rua Senador Lemos",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_f711452ecd864bd784fbc2a507fc5d25",
+                        "name": "number",
+                        "value": "8979",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_37f6e969b43d43178d63aaa8bfa4f1a8",
+                        "name": "complement",
+                        "value": "Apto 150",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_4888e4e81f7a49e886aa888d630ac646",
+                        "name": "neighborhood",
+                        "value": "Vista Alegre",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_414d48719d3b41369adaf562d84eae20",
+                        "name": "city",
+                        "value": "Belo Horizonte",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_f1d767983e3a46ab9078e8fbc4b3a96a",
+                        "name": "state",
+                        "value": "MG",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_b08f56955ceb494e8cd036cb8ae18afe",
+                        "name": "_method",
+                        "value": "PATCH",
+                        "description": "",
+                        "disabled": false
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_d42463f48e754d07891a5be04df14367",
+                    "disabled": false
+                },
+                {
+                    "id": "pair_9c35934272a14b40a8fac9d5d7b0ec86",
+                    "name": "Accept",
+                    "value": "application/json",
+                    "description": "",
+                    "disabled": false
+                },
+                {
+                    "id": "pair_36b211bf68114c2ebf7d1e9c7e989f7f",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "description": "",
+                    "disabled": true
+                },
+                {
+                    "id": "pair_4aa96b3b69804cc686bc3a37178866b6",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_3992f3ed76e84144bcd22b4c8de4c181",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_d8076d78e16140498031d370f7a8eae6",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_f3188b2b9574428cb7662acf07e3b525",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086389995,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_f7cd658e73fc4f6a90fa739e0fa2bbfd",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681313156567,
+            "created": 1680213016697,
+            "url": "http://localhost:7000/api/v1/patients/1",
+            "name": "Excluir Paciente",
+            "description": "",
+            "method": "DELETE",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086389945,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_679c5c864fd74da3805e6e8cb75352e4",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681315958757,
+            "created": 1681235502214,
+            "url": "http://localhost:7000/api/v1/patients/import",
+            "name": "Importar Pacientes (CSV)",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_e57f7bebd8d84d6caac669b803e14389",
+                        "name": "file",
+                        "value": "",
+                        "description": "",
+                        "type": "file",
+                        "fileName": "C:\\Users\\wcast\\OneDrive\\Documentos\\import.csv",
+                        "disabled": false
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_d42463f48e754d07891a5be04df14367",
+                    "disabled": false
+                },
+                {
+                    "id": "pair_9c35934272a14b40a8fac9d5d7b0ec86",
+                    "name": "Accept",
+                    "value": "application/json",
+                    "description": "",
+                    "disabled": true
+                },
+                {
+                    "id": "pair_36b211bf68114c2ebf7d1e9c7e989f7f",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_4aa96b3b69804cc686bc3a37178866b6",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_3992f3ed76e84144bcd22b4c8de4c181",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_b46fbe35fdb646a58cdc33d88bd61c81",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                },
+                {
+                    "id": "pair_0dc52fa4b44649ec83869559b2d03055",
+                    "name": "",
+                    "value": "",
+                    "description": ""
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1674086389895,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_3a21ab6db709f14ce454ec6eec76a5b2c64d5d3f",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1681312277002,
+            "created": 1674086390010,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": {},
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1674086390010,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_3a21ab6db709f14ce454ec6eec76a5b2c64d5d3f",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1680900876084,
+            "created": 1674086390014,
+            "name": "Default Jar",
+            "cookies": [
+                {
+                    "key": "XSRF-TOKEN",
+                    "value": "eyJpdiI6ImFvOFRTTnhxUWQ5ZElHb3I3TTZzNkE9PSIsInZhbHVlIjoicUg1M0QyTC90a0FyR2VkSlVWVlFsMG9WVzNsWFZ5SHNjUUwzdUdmMGl0d0k3TzdTVkdPMzRQZzR2TlIvMUR3QWh5anVJSWNpdmZ4dDNvTlVwcXhHMnp2d0FteHhYV0dGV3dlZ3NZODhLY0JBU0NQc1pzeXBRMDFIOTJqelIwQjMiLCJtYWMiOiI2ODljOTgxNGNkNjQ2ODRjZTFlMzI3NTVkYmUzZWJhZWZiYWY2MjMwMzA5OWQ4ZmQ4ZTE4NDRlMzU3MDVjNjIyIiwidGFnIjoiIn0%3D",
+                    "expires": "2023-04-07T22:54:36.000Z",
+                    "maxAge": 7200,
+                    "domain": "localhost",
+                    "path": "/",
+                    "extensions": [
+                        "samesite=lax"
+                    ],
+                    "hostOnly": true,
+                    "creation": "2023-04-07T20:46:05.880Z",
+                    "lastAccessed": "2023-04-07T20:54:36.084Z",
+                    "id": "1106196901351244"
+                },
+                {
+                    "key": "laravel_session",
+                    "value": "eyJpdiI6IkI4L1J3UXVZQzlsd2pvRHMxN00xeWc9PSIsInZhbHVlIjoiVzdEdHJtUzh4emU4UjQvZjlqQ3FHUFQ4azJDeDR6alJBNnRvSCtFWms1SUhvcWl2MXJJczJMdTFrV08ySzZzOU1wQzMzWGRoeWxtU2NvVnF2RG5hV2VjR3lqZE1CZThaMlA1MGNPNUxmbURrVGNPZVppRCszbmp4L2xGNWJsMm0iLCJtYWMiOiI1ZDExOTUwN2I0YjVhMjE3MTI5MWQ4MGMxNTUxOWUwNDdiZjc2NWI2Mjc3YTZlZmQyYWVlODJiMjVlN2JiYjc4IiwidGFnIjoiIn0%3D",
+                    "expires": "2023-04-07T22:54:36.000Z",
+                    "maxAge": 7200,
+                    "domain": "localhost",
+                    "path": "/",
+                    "httpOnly": true,
+                    "extensions": [
+                        "samesite=lax"
+                    ],
+                    "hostOnly": true,
+                    "creation": "2023-04-07T20:46:05.880Z",
+                    "lastAccessed": "2023-04-07T20:54:36.084Z",
+                    "id": "5988313729323458"
+                }
+            ],
+            "_type": "cookie_jar"
+        },
+        {
+            "_id": "spc_c276194eb5d74e6dafa4a7adfa4b166b",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1680215150050,
+            "created": 1674086390005,
+            "fileName": "OM30 APis - Teste",
+            "contents": "",
+            "contentType": "yaml",
+            "_type": "api_spec"
+        },
+        {
+            "_id": "uts_73ee14725a234a1785c94c1debcc4e08",
+            "parentId": "wrk_d420c18803c343a9a7ff3f9eda8f9061",
+            "modified": 1674086390022,
+            "created": 1674086390022,
+            "name": "Example Test Suite",
+            "_type": "unit_test_suite"
+        }
+    ]
+}

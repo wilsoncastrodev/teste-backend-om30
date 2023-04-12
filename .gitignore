@@ -3,4 +3,6 @@ database-app/
 
 redis-app/
 
-elasticsearch-app/
+elasticsearch-app/*
+
+!/elasticsearch-app/.gitignore

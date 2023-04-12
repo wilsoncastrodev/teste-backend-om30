@@ -24,6 +24,7 @@ RUN pecl install xdebug \
     && echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 RUN echo '[program:horizon] \n\
+nodaemon=true \n\
 process_name=%(program_name)s \n\
 command=php /var/www/app/artisan horizon \n\
 autostart=true \n\
