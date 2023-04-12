@@ -196,4 +196,19 @@ class PatientServiceTest extends TestCase
 
         $this->assertTrue($deletedPatient);
     }
+
+    public function testImportPatientsService()
+    {
+        Storage::fake('public');
+
+        $path = public_path('tests/test-import-patients.csv');
+        $file = new UploadedFile($path, "test-import-patients.csv", "csv", null, true);
+
+        $request = new Request();
+		$request->files->set('file', $file);
+
+        $importPatients = $this->patientService->importPatient($request);
+
+        $this->assertNull($importPatients);
+    }
 }

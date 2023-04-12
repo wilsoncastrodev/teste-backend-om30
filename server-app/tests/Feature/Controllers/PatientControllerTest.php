@@ -146,4 +146,17 @@ class PatientControllerTest extends TestCase
         $response->assertStatus(200);
         $response->assertOk();
     }
+
+    public function testImportPatientsApi()
+    {
+        $path = public_path('tests/test-import-patients.csv');
+        $file = new UploadedFile($path, "test-import-patients.csv", "csv", null, true);
+
+        $response = $this->post('/api/v1/patients/import', [
+            'file' => $file,
+        ]);
+
+        $response->assertStatus(200);
+        $response->assertOk();
+    }
 }
